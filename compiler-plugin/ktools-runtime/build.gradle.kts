@@ -5,6 +5,8 @@ plugins {
     id("convention.publish")
 }
 
+version = "0.1.0"
+
 android {
     namespace = "com.teegarcs.ktools.runtime"
     compileSdk = 35

@@ -2,6 +2,12 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.teegarcs.ktools") version "0.1.0"
+}
+
+KTools {
+    isEnabled = true
+    logCompositions = true
 }
 
 android {
@@ -57,4 +63,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation("com.teegarcs.ktools:ktools-runtime:0.1.0")
 }

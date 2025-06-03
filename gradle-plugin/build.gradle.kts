@@ -3,6 +3,8 @@ plugins {
     id("convention.publish")
 }
 
+version = "0.1.0"
+
 gradlePlugin {
     plugins {
         create("ktools"){
