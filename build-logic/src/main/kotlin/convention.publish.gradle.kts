@@ -1,10 +1,6 @@
 plugins {
     id("com.vanniktech.maven.publish")
 }
-mavenPublishing {
-//    pomFromGradleProperties()
-//    signAllPublications()
-}
 
 publishing {
     repositories {

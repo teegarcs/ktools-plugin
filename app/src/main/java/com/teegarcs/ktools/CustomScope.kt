@@ -3,7 +3,7 @@ package com.teegarcs.ktools
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
-//@RestrictedScope
+@RestrictedScope
 object CustomScope {
 
     @Composable

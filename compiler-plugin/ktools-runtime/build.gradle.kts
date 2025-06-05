@@ -1,3 +1,5 @@
+import com.vanniktech.maven.publish.AndroidSingleVariantLibrary
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -6,6 +8,14 @@ plugins {
 }
 
 version = "0.1.0"
+
+mavenPublishing {
+    configure(AndroidSingleVariantLibrary(
+        variant = "release",
+        sourcesJar = true,
+        publishJavadocJar = true,
+    ))
+}
 
 android {
     namespace = "com.teegarcs.ktools.runtime"

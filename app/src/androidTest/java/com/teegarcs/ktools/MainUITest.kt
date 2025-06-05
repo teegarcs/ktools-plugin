@@ -21,7 +21,7 @@ class MainUITest {
 
         lateinit var compositionTracker: CompositionTracker
         composeTestRule.setContent {
-            compositionTracker {
+            CompositionTracker {
                 compositionTracker = this
                 val state = vm.viewState.collectAsState().value
                 MainUI.BuildUI(state, vm)

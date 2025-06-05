@@ -11,7 +11,10 @@ pluginManagement {
         }
         mavenCentral()
         gradlePluginPortal()
-        mavenLocal()
+        maven {
+            name = "LocalRoot"
+            url = uri(rootProject.projectDir.path+"/libs")
+        }
     }
 }
 dependencyResolutionManagement {
@@ -19,7 +22,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        mavenLocal()
+        maven {
+            name = "LocalRoot"
+            url = uri(rootProject.projectDir.path+"/libs")
+        }
     }
 }
 
