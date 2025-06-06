@@ -32,7 +32,7 @@ private fun ComponentTest() {
         //allowed any other non-composable
         Log.d("tag", "something")
 
-        // not allowed Composables
+        // not allowed Composables, show error
 //        Text("test")
 //        Button() { }
     }

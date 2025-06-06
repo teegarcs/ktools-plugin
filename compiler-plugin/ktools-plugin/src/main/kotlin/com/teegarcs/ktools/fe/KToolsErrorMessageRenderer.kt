@@ -11,7 +11,7 @@ object KToolsErrorMessageRenderer : BaseDiagnosticRendererFactory() {
         KtDiagnosticFactoryToRendererMap("KTools").also { map ->
             map.put(
                 DISALLOWED_CALL_IN_SCOPE,
-                "Invalid composable invocation: {0}(), within a restricted scope",
+                "Invalid composable invocation: {0}(), within a @RestrictedScope",
                 CommonRenderers.STRING
             )
         }
