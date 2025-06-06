@@ -1,0 +1,130 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.teegarcs.ktools",
+    "module": "ktools-runtime",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.12"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ktools-runtime-0.1.0.aar",
+          "url": "ktools-runtime-0.1.0.aar",
+          "size": 9270,
+          "sha512": "29bd6efef3ee9c400edcfce6d99db5189ccc7ff82436edb73ccfb1cb93d67fbda9c160a80aff7f252830e47e8da68f9d628d88960f0e057ff3280291bbf3c007",
+          "sha256": "623fb0ff6ce5253a4123dee981eb27655f91a33f610ab928d2b3d7b206af9cfa",
+          "sha1": "f4afa0fe80b5e0e672368714453f40fb1842bb19",
+          "md5": "d9a8d1b2badc7ceef0aff8f43571bccb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2025.05.01"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.runtime",
+          "module": "runtime"
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ktools-runtime-0.1.0.aar",
+          "url": "ktools-runtime-0.1.0.aar",
+          "size": 9270,
+          "sha512": "29bd6efef3ee9c400edcfce6d99db5189ccc7ff82436edb73ccfb1cb93d67fbda9c160a80aff7f252830e47e8da68f9d628d88960f0e057ff3280291bbf3c007",
+          "sha256": "623fb0ff6ce5253a4123dee981eb27655f91a33f610ab928d2b3d7b206af9cfa",
+          "sha1": "f4afa0fe80b5e0e672368714453f40fb1842bb19",
+          "md5": "d9a8d1b2badc7ceef0aff8f43571bccb"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "ktools-runtime-0.1.0-sources.jar",
+          "url": "ktools-runtime-0.1.0-sources.jar",
+          "size": 2137,
+          "sha512": "7f68823baff56710d186b2cf55b508a652556e47ed194287b792f2fa3427fb88328bf3136442e2be6dd02d006fbcbfcd36ce37f68fc3f109528b693299e437ab",
+          "sha256": "a2a6d3676cb5d6422db5c43c96a87d8059e141f3a89d9802a3262a7bfb0fd46e",
+          "sha1": "ea0837837a86d72fbda373e7ebbb7e8a42984318",
+          "md5": "e960ed7da0e6165a3d2673f94602813b"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseJavaDocPublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "javadoc",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "ktools-runtime-0.1.0-javadoc.jar",
+          "url": "ktools-runtime-0.1.0-javadoc.jar",
+          "size": 275634,
+          "sha512": "f1d3892b06f97b637cde205d66bc700c60ca156460a376743e63d7cb39c6498a8db7c938a5b9451a79a00e3e201ab75b9610ac95da4677653c4b80763a4d31de",
+          "sha256": "9003ec448028441b43e0fc72e39da07db3f5ffc33f7de5412685768804bbd99f",
+          "sha1": "e18ce819dcb597c87f174af6a54e2106bd8f6060",
+          "md5": "5af2b96a5e3f741ffaab72104a78e1d3"
+        }
+      ]
+    }
+  ]
+}

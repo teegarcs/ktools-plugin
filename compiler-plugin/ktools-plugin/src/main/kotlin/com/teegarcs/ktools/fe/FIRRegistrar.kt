@@ -6,5 +6,6 @@ class FIRRegistrar : FirExtensionRegistrar() {
 
     override fun ExtensionRegistrarContext.configurePlugin() {
         +::KToolsCheckerExtension
+
     }
 }

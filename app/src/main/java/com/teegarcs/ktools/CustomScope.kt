@@ -1,5 +1,7 @@
 package com.teegarcs.ktools
 
+import android.util.Log
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 
@@ -23,11 +25,15 @@ fun ScopeComponentGroup(
 @Composable
 private fun ComponentTest() {
     ScopeComponentGroup {
-        // allowed
+        // allowed Composables
         VariantOne()
         VariantTwo()
 
-        // not allowed
+        //allowed any other non-composable
+        Log.d("tag", "something")
+
+        // not allowed Composables
 //        Text("test")
+//        Button() { }
     }
 }

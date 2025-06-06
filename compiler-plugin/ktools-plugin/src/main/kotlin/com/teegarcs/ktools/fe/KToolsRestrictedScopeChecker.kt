@@ -2,6 +2,7 @@ package com.teegarcs.ktools.fe
 
 import com.teegarcs.ktools.fe.KToolsErrors.DISALLOWED_CALL_IN_SCOPE
 import org.jetbrains.kotlin.diagnostics.DiagnosticReporter
+import org.jetbrains.kotlin.diagnostics.SourceElementPositioningStrategies
 import org.jetbrains.kotlin.diagnostics.reportOn
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.analysis.checkers.MppCheckerKind
@@ -26,20 +27,16 @@ import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
 
-class KToolsRestrictedScopeChecker(
-    private val session: FirSession
-) : FirFunctionCallChecker(MppCheckerKind.Common) {
+object KToolsRestrictedScopeChecker : FirFunctionCallChecker(MppCheckerKind.Common) {
 
-    companion object {
-        private val restrictedScopeAnnotation = ClassId(
-            FqName("com.teegarcs.ktools"),
-            Name.identifier("RestrictedScope")
-        )
-        private val composableAnnotation = ClassId(
-            FqName("androidx.compose.runtime"),
-            Name.identifier("Composable")
-        )
-    }
+    private val restrictedScopeAnnotation = ClassId(
+        FqName("com.teegarcs.ktools"),
+        Name.identifier("RestrictedScope")
+    )
+    private val composableAnnotation = ClassId(
+        FqName("androidx.compose.runtime"),
+        Name.identifier("Composable")
+    )
 
     @OptIn(SymbolInternals::class)
     override fun check(
@@ -55,17 +52,17 @@ class KToolsRestrictedScopeChecker(
 
         // Get its type and check for an extension Receiver
         val lambdaType = enclosingLambda.typeRef.coneTypeOrNull ?: return
-        val expectedReceiverType = lambdaType.receiverType(session)
+        val expectedReceiverType = lambdaType.receiverType(context.session)
             ?: return // we only care about anonymous functions with a receiver
         val expectedReceiverClassId = expectedReceiverType.classId ?: return
 
         // get the FirClass for the receiver type and check if it has the @RestrictedScope
         val receiverClassSymbol =
-            session.symbolProvider.getClassLikeSymbolByClassId(expectedReceiverClassId) as? FirRegularClassSymbol
+            context.session.symbolProvider.getClassLikeSymbolByClassId(expectedReceiverClassId) as? FirRegularClassSymbol
                 ?: return
 
         val receiverClass = receiverClassSymbol.fir // get the actual FirRegularclass node
-        val isRestricted = receiverClass.hasAnnotation(restrictedScopeAnnotation, session)
+        val isRestricted = receiverClass.hasAnnotation(restrictedScopeAnnotation, context.session)
 
         if (!isRestricted) {
             return // The receiver class isn't restricted so the rules do not apply
@@ -79,7 +76,7 @@ class KToolsRestrictedScopeChecker(
             // TODO, can this be more robust?
             // check if the receiver of teh 'invoke' is a parameter.
             // fun `func()`, the dispatchReceiver should be a reference to func
-            val receiverSymbol = expression.dispatchReceiver?.toResolvedCallableSymbol(session)
+            val receiverSymbol = expression.dispatchReceiver?.toResolvedCallableSymbol(context.session)
             if (receiverSymbol is FirValueParameterSymbol) {
                 // this is a call like func(), we should allow it.
                 return
@@ -87,7 +84,7 @@ class KToolsRestrictedScopeChecker(
         }
 
         // Only apply strict rules to calls that have are of type @Composable
-        if (!calleeSymbol.hasAnnotation(composableAnnotation, session)) {
+        if (!calleeSymbol.hasAnnotation(composableAnnotation, context.session)) {
             return
         }
 
@@ -96,10 +93,11 @@ class KToolsRestrictedScopeChecker(
 
         if (!isCallAllowed) {
             reporter.reportOn(
-                expression.source,
-                DISALLOWED_CALL_IN_SCOPE,
-                calleeSymbol.name.asString(),
-                context
+                source = expression.calleeReference.source,
+                factory = DISALLOWED_CALL_IN_SCOPE,
+                a = calleeSymbol.name.asString(),
+                context = context,
+                positioningStrategy = SourceElementPositioningStrategies.DEFAULT,
             )
         }
 

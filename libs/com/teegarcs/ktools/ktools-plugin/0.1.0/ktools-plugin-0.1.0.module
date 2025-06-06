@@ -1,0 +1,102 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.teegarcs.ktools",
+    "module": "ktools-plugin",
+    "version": "0.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.12"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ktools-plugin-0.1.0.jar",
+          "url": "ktools-plugin-0.1.0.jar",
+          "size": 29013,
+          "sha512": "339e59ae810fcf5ed5cbf32fcc09fec66e0fc3481acf59e0710c2725470e041d7b1b04ff98eeaf385d8eedb0e48984e3f8c8915b8adf70fc05a3d283b69025e1",
+          "sha256": "14b2aff57d0dabd3d30863fb43bfcb9fe01a73d89310ffdc9eb49b1033672f85",
+          "sha1": "189f7b3d2594e7ee06a6fb8b10485649f7573bf1",
+          "md5": "68063ea21e716e2d73c4b5d058604817"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 21,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.1.20"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ktools-plugin-0.1.0.jar",
+          "url": "ktools-plugin-0.1.0.jar",
+          "size": 29013,
+          "sha512": "339e59ae810fcf5ed5cbf32fcc09fec66e0fc3481acf59e0710c2725470e041d7b1b04ff98eeaf385d8eedb0e48984e3f8c8915b8adf70fc05a3d283b69025e1",
+          "sha256": "14b2aff57d0dabd3d30863fb43bfcb9fe01a73d89310ffdc9eb49b1033672f85",
+          "sha1": "189f7b3d2594e7ee06a6fb8b10485649f7573bf1",
+          "md5": "68063ea21e716e2d73c4b5d058604817"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "ktools-plugin-0.1.0-sources.jar",
+          "url": "ktools-plugin-0.1.0-sources.jar",
+          "size": 9298,
+          "sha512": "fc867139ddc26a990a5118e8506ad3375f06fb458cd1cee2378aee24904f48d2e51403dc7dc046e50e16a1bb8ea94a0a27ac649ce4c7b06ebea55a64d10858e9",
+          "sha256": "b39accbce8c5c834ccb081112864645caa18ab414407e83db970d9bbb12c371b",
+          "sha1": "fc2c06ec8047ee2219f2922483f2ab02bb50b339",
+          "md5": "452e141acce03de07981c8b512a74d79"
+        }
+      ]
+    }
+  ]
+}

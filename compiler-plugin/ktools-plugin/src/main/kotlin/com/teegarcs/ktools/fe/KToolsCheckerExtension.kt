@@ -12,7 +12,7 @@ class KToolsCheckerExtension(
     override val expressionCheckers = object : ExpressionCheckers() {
 
         override val functionCallCheckers: Set<FirFunctionCallChecker> = setOf(
-            KToolsRestrictedScopeChecker(session)
+            KToolsRestrictedScopeChecker
         )
     }
 }
