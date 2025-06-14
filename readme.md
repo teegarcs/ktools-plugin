@@ -99,7 +99,7 @@ File > Settings > Language & Frameworks > Kotlin > Enable K2 mode
 
 It is necessary to restart the IDE to do the next step.
 
-<img src="docs_images/k2.png" width="649" alt="k2"/>
+<img src="/docs_images/k2.png" width="649" alt="k2"/>
 
 #### Allow third party K2 plugins:
 
@@ -111,6 +111,6 @@ kotlin.k2.only.bundled.compiler.plugins.enabled
 
 And uncheck it.
 
-<img src="docs_images/registry.png" width="1089" alt="registry"/>
+<img src="/docs_images/registry.png" width="1089" alt="registry"/>
 
 
