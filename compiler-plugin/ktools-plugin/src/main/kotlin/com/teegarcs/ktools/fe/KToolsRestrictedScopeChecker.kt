@@ -65,7 +65,7 @@ object KToolsRestrictedScopeChecker : FirFunctionCallChecker(MppCheckerKind.Comm
         if (!isCallAllowed(calleeSymbol, restrictedReceiverType, context)) {
             reporter.reportOn(
                 source = expression.calleeReference.source,
-                factory = DISALLOWED_CALL_IN_SCOPE, // Replace with your actual error factory
+                factory = DISALLOWED_CALL_IN_SCOPE,
                 a = calleeSymbol.name.asString(),
                 context = context,
                 positioningStrategy = SourceElementPositioningStrategies.DEFAULT,

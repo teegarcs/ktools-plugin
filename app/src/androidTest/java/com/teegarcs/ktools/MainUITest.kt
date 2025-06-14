@@ -16,7 +16,7 @@ class MainUITest {
     val composeTestRule = createComposeRule()
 
     @Test
-    fun exampleCompositionTest(){
+    fun exampleCompositionTest() {
         val vm = MainViewModel()
 
         lateinit var compositionTracker: CompositionTracker
@@ -32,9 +32,14 @@ class MainUITest {
         compositionTracker.assertCompositions(
             "BuildUI", "Column", "Button", "Button"
         )
+        // reset the tracker to clear initial compositions
+        compositionTracker.reset()
+
         //user action
         composeTestRule.onNodeWithText("Increment").performClick()
-        // assert only the expected compositions were triggered
+        composeTestRule.onNodeWithText("Count: 1").assertExists()
+
+        // assert that only the composables we expect to be recomposed after a user action are recomposed
         compositionTracker.assertCompositions("BuildUI", "Column")
         //assert the composition was not triggered
         compositionTracker.assertNotComposed("Button")

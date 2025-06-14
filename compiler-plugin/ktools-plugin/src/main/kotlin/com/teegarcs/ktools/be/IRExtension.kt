@@ -16,13 +16,7 @@ class IRExtension(
         pluginContext: IrPluginContext
     ) {
 
-        /*
-        For this plugin, we want to ignore anything not in the main directory (test/androidTest)
-         */
-
-        // Since the fragment processes an entire module at a time, we can just simply check the first file
         val firstFilePath = moduleFragment.files.firstOrNull()?.path.orEmpty()
-
         if (firstFilePath.contains("src/test") || firstFilePath.contains("src/androidTest")) {
             return //we don't want to modify this module
         }
